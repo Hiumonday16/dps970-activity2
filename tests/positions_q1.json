@@ -1,0 +1,13 @@
+[
+  {"name": "empty_board",      "type": "quiet",    "moves": [],                             "best": null, "note": "opening; Connect Four theory says the centre (3) is best"},
+  {"name": "opening_2",        "type": "quiet",    "moves": [3, 3],                         "best": null, "note": "X and O both played the centre"},
+  {"name": "midgame",          "type": "quiet",    "moves": [3, 3, 2, 4, 4, 2, 5, 1],       "best": null, "note": "no immediate threats for either player"},
+  {"name": "win_horizontal",   "type": "tactical", "moves": [0, 6, 1, 6, 2, 5],             "best": [3],  "note": "X has 0-1-2 on the bottom row: play 3 to win"},
+  {"name": "win_vertical",     "type": "tactical", "moves": [2, 0, 2, 0, 2, 6],             "best": [2],  "note": "X has three stacked in column 2"},
+  {"name": "win_diagonal",     "type": "tactical", "moves": [0, 1, 1, 2, 2, 3, 2, 3, 3, 6], "best": [3],  "note": "X completes the diagonal in column 3"},
+  {"name": "block_horizontal", "type": "tactical", "moves": [6, 1, 6, 2, 0, 3],             "best": [4],  "note": "O has 1-2-3 on the bottom row: X must block 4"},
+  {"name": "block_vertical",   "type": "tactical", "moves": [0, 5, 1, 5, 6, 5],             "best": [5],  "note": "O has three stacked in column 5: X must block"},
+  {"name": "block_diagonal",   "type": "tactical", "moves": [2, 1, 3, 2, 3, 4, 4, 3, 6, 4], "best": [4],  "note": "O threatens the diagonal ending in column 4"},
+  {"name": "win_before_block", "type": "tactical", "moves": [0, 6, 1, 6, 2, 6],             "best": [3],  "note": "X can win at 3; blocking O at 6 is worse"},
+  {"name": "avoid_trap",       "type": "tactical", "moves": [1, 1, 3, 3, 6, 2, 6, 2],       "best": [1, 2, 3, 5, 6], "note": "playing 0 or 4 lets O win on top of that piece"}
+]

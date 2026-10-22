@@ -1,0 +1,27 @@
+{
+  "classify": [
+    {"name": "Q2a", "sentence": "Smoke => Fire", "expected": "neither"},
+    {"name": "Q2b", "sentence": "((Smoke & Heat) => Fire) <=> ((Smoke => Fire) | (Heat => Fire))", "expected": "valid"},
+    {"name": "Q4",  "sentence": "((Food => Party) | (Drinks => Party)) => ((Food & Drinks) => Party)", "expected": "valid"},
+    {"name": "excluded middle",       "sentence": "P | ~P",                 "expected": "valid"},
+    {"name": "contradiction",         "sentence": "P & ~P",                 "expected": "unsatisfiable"},
+    {"name": "contrapositive",        "sentence": "(P => Q) <=> (~Q => ~P)", "expected": "valid"},
+    {"name": "converse is not valid", "sentence": "(P => Q) => (Q => P)",   "expected": "neither"},
+    {"name": "Q3b on its own",        "sentence": "(A => B) & A & ~B & C & D", "expected": "unsatisfiable"}
+  ],
+  "count_models": [
+    {"name": "Q3a",            "sentence": "B | C",                     "vocabulary": ["A", "B", "C", "D"], "expected": 12},
+    {"name": "Q3b",            "sentence": "(A => B) & A & ~B & C & D", "vocabulary": ["A", "B", "C", "D"], "expected": 0},
+    {"name": "single symbol",  "sentence": "A",                         "vocabulary": ["A", "B", "C", "D"], "expected": 8},
+    {"name": "A and B",        "sentence": "A & B",                     "vocabulary": ["A", "B", "C", "D"], "expected": 4},
+    {"name": "valid sentence", "sentence": "A | ~A",                    "vocabulary": ["A", "B", "C", "D"], "expected": 16}
+  ],
+  "resolution": [
+    {"name": "Q4 sentence is valid",   "kb": [], "query": "((Food => Party) | (Drinks => Party)) => ((Food & Drinks) => Party)", "expected": true},
+    {"name": "Q2b sentence is valid",  "kb": [], "query": "((Smoke & Heat) => Fire) <=> ((Smoke => Fire) | (Heat => Fire))", "expected": true},
+    {"name": "Q2a is not valid",       "kb": [], "query": "Smoke => Fire", "expected": false},
+    {"name": "modus ponens",           "kb": ["P", "P => Q"], "query": "Q", "expected": true},
+    {"name": "P or Q does not entail P", "kb": ["P | Q"], "query": "P", "expected": false},
+    {"name": "wumpus world (AIMA 7.5)", "kb": ["B11 <=> (P12 | P21)", "~B11"], "query": "~P12", "expected": true}
+  ]
+}
